@@ -9,6 +9,7 @@ import Video from "./pages/Video";
 import Upload from "./pages/Upload";
 import Home from "./pages/Home";
 import NavaBar from "./pages/NavBar";
+import Subject from "./pages/Subject";
 
 function App() {
 	return (
@@ -21,6 +22,7 @@ function App() {
 					<Route path="/signup" element={<SignUp />} />
 					<Route path="/login" element={<Login />} />
 					<Route path="/home" element={<Home />} />
+					<Route path="/subject" element={<Subject />} />
 					<Route path="/upload" element={<Upload />} />
 				</Routes>
 			</div>
