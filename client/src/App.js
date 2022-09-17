@@ -6,7 +6,7 @@ import LandingPage from "./pages/LandingPage";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import Video from "./pages/Video";
-import Upload from "./pages/Upload";
+import Forum from "./pages/Forum";
 import Home from "./pages/Home";
 import NavaBar from "./pages/NavBar";
 import Subject from "./pages/Subject";
@@ -23,7 +23,7 @@ function App() {
 					<Route path="/login" element={<Login />} />
 					<Route path="/home" element={<Home />} />
 					<Route path="/subject" element={<Subject />} />
-					<Route path="/upload" element={<Upload />} />
+					<Route path="/upload" element={<Forum />} />
 				</Routes>
 			</div>
 		</AuthProvider>
