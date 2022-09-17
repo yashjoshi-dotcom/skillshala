@@ -121,7 +121,7 @@ function Video() {
         </div>
         <div className="myId">
           <input
-          type="text"
+            type="text"
             id="filled-basic"
             label="Name"
             variant="filled"
@@ -130,14 +130,11 @@ function Video() {
             style={{ marginBottom: "20px" }}
           />
           <CopyToClipboard text={me} style={{ marginBottom: "2rem" }}>
-            <button>
-              
-              Copy ID
-              </button>
+            <button>Copy ID</button>
           </CopyToClipboard>
 
           <input
-          type="text"
+            type="text"
             id="filled-basic"
             label="ID to call"
             variant="filled"
@@ -155,7 +152,7 @@ function Video() {
                 aria-label="call"
                 onClick={() => callUser(idToCall)}
               >
-                {/* <PhoneIcon fontSize="large" /> */}
+                Ans{/* <PhoneIcon fontSize="large" /> */}
               </button>
             )}
             {idToCall}
@@ -165,7 +162,14 @@ function Video() {
           {receivingCall && !callAccepted ? (
             <div className="caller">
               <h1>{name} is calling...</h1>
-              <button variant="contained" color="primary" onClick={answerCall}>
+              <button
+                variant="contained"
+                color="primary"
+                onClick={() => {
+                  answerCall();
+                  setCallAccepted(false);
+                }}
+              >
                 Answer
               </button>
             </div>
