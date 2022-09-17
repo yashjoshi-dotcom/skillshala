@@ -3,6 +3,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Landingpage from "./pages/landingpage";
 import SignUp from "./pages/SignUp";
+import Upload from "./pages/Upload";
 
 function App() {
 	return (
@@ -10,6 +11,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Landingpage />} />
 				<Route path="/signup" element={<SignUp />} />
+				<Route path="/upload" element={<Upload />} />
 			</Routes>
 		</div>
 	);
