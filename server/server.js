@@ -1,28 +1,36 @@
-const express = require("express")
-const http = require("http")
-const app = express()
-const server = http.createServer(app)
-const io = require("socket.io")(server, {
-	cors: {
-		origin: "http://localhost:3000",
-		methods: [ "GET", "POST" ]
-	}
-})
+const express = require("express");
+const app = express();
+const server = require("http").Server(app);
+const { v4: uuidv4 } = require("uuid");
+const io = require("socket.io")(server);
+// Peer
+
+const { ExpressPeerServer } = require("peer");
+const peerServer = ExpressPeerServer(server, {
+  debug: true,
+});
+
+app.set("view engine", "ejs");
+app.use(express.static("public"));
+app.use("/peerjs", peerServer);
+
+app.get("/", (req, rsp) => {
+  rsp.redirect(`/thfhj`);
+});
+
+app.get("/:room", (req, res) => {
+  res.render("room", { roomId: req.params.room });
+});
 
 io.on("connection", (socket) => {
-	socket.emit("me", socket.id)
+  socket.on("join-room", (roomId, userId) => {
+    socket.join(roomId);
+    socket.to(roomId).broadcast.emit("user-connected", userId);
 
-	socket.on("disconnect", () => {
-		socket.broadcast.emit("callEnded")
-	})
+    socket.on("message", (message) => {
+      io.to(roomId).emit("createMessage", message);
+    });
+  });
+});
 
-	socket.on("callUser", (data) => {
-		io.to(data.userToCall).emit("callUser", { signal: data.signalData, from: data.from, name: data.name })
-	})
-
-	socket.on("answerCall", (data) => {
-		io.to(data.to).emit("callAccepted", data.signal)
-	})
-})
-
-server.listen(5000, () => console.log("server is running on port 5000"));
+server.listen(process.env.PORT || 4000);
