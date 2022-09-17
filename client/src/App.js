@@ -23,7 +23,7 @@ function App() {
 					<Route path="/login" element={<Login />} />
 					<Route path="/home" element={<Home />} />
 					<Route path="/subject" element={<Subject />} />
-					<Route path="/upload" element={<Forum />} />
+					<Route path="/forum" element={<Forum />} />
 				</Routes>
 			</div>
 		</AuthProvider>
