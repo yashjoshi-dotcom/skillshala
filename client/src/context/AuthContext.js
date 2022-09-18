@@ -39,7 +39,7 @@ export function AuthProvider(props) {
 			setCurrentUser(user);
 		} else {
 			setCurrentUser(false);
-			navigate("/login");
+			//navigate("/login");
 		}
 	});
 
