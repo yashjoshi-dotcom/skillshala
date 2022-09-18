@@ -88,13 +88,13 @@ const Navabr = () => {
 				<div className="m-0 lg:m-auto">
 					<Navbar.Collapse>
 						<NavLink
-							to="/Home"
+							to="/home"
 							className=" text-lg text-neutral-400 hover:text-neutral-200"
 						>
 							Home
 						</NavLink>
 						<NavLink
-							to="/aboutus"
+							to="/"
 							className="text-lg text-neutral-400 hover:text-neutral-200"
 						>
 							About Us
