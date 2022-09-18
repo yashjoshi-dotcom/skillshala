@@ -15,31 +15,32 @@ import Profile from "./pages/profile";
 import Testimonials from "./pages/testimonials";
 import ContactUs from "./pages/contactus";
 
-import Chat from './pages/Chat';
+import Chat from "./pages/Chat";
+import Footer from "./components/Footer/Footer";
 
 function App() {
-	return (
-		<AuthProvider>
-			<div className="App">
-				<NavaBar />
-				<Routes>
-					<Route path="/" element={<LandingPage />} />
-					<Route path="/video" element={<Video />} />
-					<Route path="/reward" element={<Reward />} />
-					<Route path="/signup" element={<SignUp />} />
-					<Route path="/login" element={<Login />} />
-					<Route path="/home" element={<Home />} />
-					<Route path="/subject" element={<Subject />} />
-					<Route path="/forum" element={<Forum />} />
-					<Route path="/testimonials" element={<Testimonials />} />
-					<Route path="/profile" element={<Profile />} />
-					<Route path="/contact" element={<ContactUs />} />
-					<Route path="/chat" element={<Chat />} />
-
-				</Routes>
-			</div>
-		</AuthProvider>
-	);
+  return (
+    <AuthProvider>
+      <div className="App">
+        <NavaBar />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/video" element={<Video />} />
+          <Route path="/reward" element={<Reward />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/subject" element={<Subject />} />
+          <Route path="/forum" element={<Forum />} />
+          <Route path="/testimonials" element={<Testimonials />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/chat" element={<Chat />} />
+        </Routes>
+      </div>
+      <Footer />
+    </AuthProvider>
+  );
 }
 
 export default App;
