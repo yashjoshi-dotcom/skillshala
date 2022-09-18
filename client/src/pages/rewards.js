@@ -30,7 +30,7 @@ const Reward = () => {
                         <div className=" text-center mb-[3vh] text-3xl italic font-semibold ">I Pad air 5</div>
                     </div>
                 </Carousel>
-                <div class="grid overflow-hidden grid-cols-3 grid-rows-4 gap-2 py-2">
+                <div class="grid overflow-hidden grid-cols-3 grid-rows-4 gap-2 py-2 before:hidden after:hidden">
                     <div class="box row-span-3 rounded-3xl">
                         <div className="block rounded-lg">
                             <img className=" w-[462px] h-[300px] rounded-lg" src="https://source.unsplash.com/500x300/?laptop" alt="" />
