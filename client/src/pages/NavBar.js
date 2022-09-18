@@ -49,78 +49,16 @@ const Navabr = () => {
   const { logOut } = useAuth();
 
   return (
-    <div className="dark ">
-      <Navbar fluid={true} rounded={false}>
-        <div className=" sm:absolute">
-          <Navbar.Brand href="/">
-            <span className="self-center whitespace-nowrap text-xl font-semibold italic dark:text-white">
-              Skill Shala
-            </span>
-          </Navbar.Brand>
-        </div>
-        <div className="flex md:order-2 ">
-          <Dropdown
-            arrowIcon={false}
-            inline={true}
-            label={
-              <Avatar
-                alt="User settings"
-                img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                rounded={true}
-              />
-            }
-          >
-            <Dropdown.Header>
-              <span className="block text-sm">Bonnie Green</span>
-              <span className="block truncate text-sm font-medium">
-                name@flowbite.com
-              </span>
-            </Dropdown.Header>
-            <Dropdown.Item>Dashboard</Dropdown.Item>
-            <Dropdown.Item>Settings</Dropdown.Item>
-            <Dropdown.Item>Earnings</Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item onClick={logOut}>Sign out</Dropdown.Item>
-          </Dropdown>
-
-          <Navbar.Toggle />
-        </div>
-        <div className="m-0 lg:m-auto">
-          <Navbar.Collapse>
-            <NavLink
-              to="/home"
-              className=" text-lg text-neutral-400 hover:text-neutral-200"
-            >
-              Home
-            </NavLink>
-            <NavLink
-              to="/"
-              className="text-lg text-neutral-400 hover:text-neutral-200"
-            >
-              About Us
-            </NavLink>
-            <NavLink
-              to="/contact"
-              className="text-lg text-neutral-400 hover:text-neutral-200"
-            >
-              Contact
-            </NavLink>
-            <NavLink
-              to="/testimonials"
-              className="text-lg text-neutral-400 hover:text-neutral-200"
-            >
-              Testimonials
-            </NavLink>
-            <NavLink
-              to="/signin"
-              className="text-lg text-neutral-400 hover:text-neutral-200"
-            >
-              Login
-            </NavLink>
-          </Navbar.Collapse>
-        </div>
-      </Navbar>
-    </div>
+    <>
+    
+     <div className="">
+      <ul>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+     </div>
+  
+    </>
   );
 };
 
