@@ -52,6 +52,7 @@ const Navabr = () => {
     <>
     
      <div className="flex items-center w-full bg-gray-700 h-12">
+      <a className="flex w-[10vw] font-bold italic  pl-2 justify-between text-white items-center text-2xl" href="/">Skill Shala</a>
       <ul className="flex w-full justify-between text-white items-center text-xl">
         <li><a href="/home">Home</a></li>
         <li><a href="/contact">Contact</a></li>
