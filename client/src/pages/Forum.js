@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase-config";
@@ -7,10 +7,6 @@ import Questions from "../components/Questions";
 function Forum() {
 	const [questionsList, setQuestionsList] = useState([]);
 	const [loading, setLoading] = useState(true);
-
-	useEffect(() => {
-		fetchQuestions();
-	}, []);
 
 	async function fetchQuestions() {
 		const querySnapshot = await getDocs(collection(db, "Forum"));
@@ -24,39 +20,37 @@ function Forum() {
 
 			console.log(id, Author, Question, TimeStamp, Upvote, Downvote);
 
-			setQuestionsList((prevData) => {
-				return [
-					...prevData,
-					{
-						id,
-						author: Author,
-						question: Question,
-						timeStamp: TimeStamp,
-						upVote: Upvote,
-						downVote: Downvote,
-					},
-				];
+			setQuestionsList((prevState) => {
+				const newList = [...prevState];
+				newList.push({ id, Author, Question, TimeStamp, Upvote, Downvote });
+				return newList;
 			});
 		});
 		setLoading(false);
+		console.log(questionsList);
 	}
 
+	useEffect(() => {
+		fetchQuestions();
+	}, []);
+
 	return (
-		<div className="flex h-screen gap-4 bg-slate-700 px-12 py-12">
-			<div className="h-full w-2/3 border-2 border-indigo-500">
+		<div className="flex h-full gap-4 bg-slate-700 px-12 py-12">
+			<div className="h-full w-2/3 divide-y-2 divide-indigo-500 border-2 border-indigo-500">
 				{loading ? (
 					<p>Loading...</p>
 				) : (
-					questionsList.forEach((question) => {
+					questionsList.map((question) => (
 						<Questions
+							className=""
 							key={question.id}
-							Author={question.Author}
-							Question={question.Question}
-							TimeStamp={question.TimeStamp}
-							Upvote={question.Upvote}
-							Downvote={question.Downvote}
-						/>;
-					})
+							author={question.Author}
+							question={question.Question}
+							timeStamp={question.TimeStamp}
+							upVote={question.Upvote}
+							downVote={question.Downvote}
+						/>
+					))
 				)}
 			</div>
 			<div className="h-1/2 w-1/3 rounded border-2 border-indigo-500">
