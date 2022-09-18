@@ -10,6 +10,8 @@ import Forum from "./pages/Forum";
 import Home from "./pages/Home";
 import NavaBar from "./pages/NavBar";
 import Subject from "./pages/Subject";
+import Reward from "./pages/rewards";
+import Profile from "./pages/profile";
 
 function App() {
 	return (
@@ -19,11 +21,13 @@ function App() {
 				<Routes>
 					<Route path="/" element={<LandingPage />} />
 					<Route path="/video" element={<Video />} />
+					<Route path="/reward" element={<Reward />} />
 					<Route path="/signup" element={<SignUp />} />
 					<Route path="/login" element={<Login />} />
 					<Route path="/home" element={<Home />} />
 					<Route path="/subject" element={<Subject />} />
 					<Route path="/forum" element={<Forum />} />
+					<Route path="/profile" element={<Profile />} />
 				</Routes>
 			</div>
 		</AuthProvider>
