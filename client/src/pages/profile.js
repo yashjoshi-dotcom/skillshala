@@ -5,9 +5,36 @@ import { useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase-config";
 import Questions from "../components/Questions";
+import {storage} from "../firebase-config";
+import {ref,uploadBytesResumable,getDownloadURL } from "@firebase/storage";
+
 
 const Profile = () => {
 
+    const [progress,setProgress]=useState(0);
+    const pdfupload =(e)=>{
+        e.preventDefault();
+        const file =e.target[0].files[0];
+        uploadFile(file);
+        console.log(file);
+    }
+    const uploadFile=(file)=>{
+        if(!file){
+            window.alert("Pls choose a file");
+            return;
+        }
+        const storageRef=ref(storage,`/files/${file.name}`);
+        const uploadTask=uploadBytesResumable(storageRef,file);
+        uploadTask.on("state_changed",(snapshot)=>{
+            const prog =Math.round((snapshot.bytesTransferred/snapshot.totalBytes)*100);
+            setProgress(prog);
+             
+        },(err)=>{console.log(err);},
+        ()=>{
+            getDownloadURL(uploadTask.snapshot.ref).then((url) => console.log(url))
+        }
+        )
+    }
     const [questionsList, setQuestionsList] = useState([]);
     const [loading, setLoading] = useState(true);
     var c = 0;
@@ -251,17 +278,16 @@ const Profile = () => {
                                                     aria-describedby="user_avatar_help"
                                                     id="user_avatar"
                                                     type="file"
-
                                                 //   onChangeCapture={(e) => uploadImage(e)}
                                                 />
+                                                <h3>Uploaded {progress} %</h3>
                                             </div>
 
                                             <div className="my-5 text-center">
                                                 <button
                                                     type="submit"
-                                                    onClick=""
                                                     className="focus:outline-none mx-auto  text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-10 py-2.5  dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 "
-                                                >
+                                                    onClick={pdfupload} >
                                                     Start Class
                                                 </button>
                                             </div>
