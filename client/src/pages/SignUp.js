@@ -12,7 +12,7 @@ function SignUp(props) {
 	const [error, setError] = useState(false);
 
 	// Variables
-	const { currentUser, setCurrentUser } = useAuth();
+	const { currentUser, setCurrentUser, fetchUserDetails } = useAuth();
 	const navigate = useNavigate();
 	console.log(currentUser);
 
@@ -60,7 +60,7 @@ function SignUp(props) {
 								});
 								setCurrentUser(cred);
 								setLoading(false);
-								navigate("/");
+								fetchUserDetails(cred.user.uid);
 							} catch (error) {
 								setError(error.message);
 								setLoading(false);

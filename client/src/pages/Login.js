@@ -12,7 +12,7 @@ function Login(props) {
 	const emailRef = useRef();
 	const passwordRef = useRef();
 
-	const { currentUser, setCurrentUser } = useAuth();
+	const { currentUser, setCurrentUser, fetchUserDetails } = useAuth();
 
 	const containerClass = "flex gap-4 items-center";
 	const spanClass = "w-1/3 text-white text-l";
@@ -27,9 +27,9 @@ function Login(props) {
 		signInWithEmailAndPassword(auth, email.trim(), password.trim())
 			.then((userCredentials) => {
 				setCurrentUser(userCredentials);
+				console.log(userCredentials.user.uid);
+				fetchUserDetails(userCredentials.user.uid);
 				isLoading(false);
-				navigate("/");
-				console.log(currentUser);
 			})
 			.catch((error) => {
 				setError(error.message);

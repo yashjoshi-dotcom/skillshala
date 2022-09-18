@@ -1,5 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { auth } from "../firebase-config";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase-config";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
@@ -11,7 +13,26 @@ export function useAuth() {
 
 export function AuthProvider(props) {
 	const [currentUser, setCurrentUser] = useState(false);
+	const [userRole, setUserRole] = useState(false);
+	const [userGender, setUserGender] = useState(false);
+	const [userName, setUserName] = useState(false);
+
 	const navigate = useNavigate();
+
+	async function fetchUserDetails(uid) {
+		console.log(db, uid);
+		const docRef = doc(db, "Users", uid);
+		const docSnap = await getDoc(docRef);
+		if (docSnap.exists()) {
+			console.log("Document data:", docSnap.data());
+			setUserGender(docSnap.data().gender);
+			setUserName(docSnap.data().fullname);
+			setUserRole(docSnap.data().role);
+			navigate("/");
+		} else {
+			console.log("No such document!");
+		}
+	}
 
 	onAuthStateChanged(auth, (user) => {
 		if (user) {
@@ -25,7 +46,7 @@ export function AuthProvider(props) {
 	function logOut() {
 		signOut(auth)
 			.then(() => {
-				navigate("/login");
+				setCurrentUser(false);
 			})
 			.catch((error) => {
 				console.log("There was some error");
@@ -36,6 +57,13 @@ export function AuthProvider(props) {
 		currentUser,
 		setCurrentUser,
 		logOut,
+		userName,
+		setUserName,
+		userGender,
+		setUserGender,
+		userRole,
+		setUserRole,
+		fetchUserDetails,
 	};
 
 	return (
