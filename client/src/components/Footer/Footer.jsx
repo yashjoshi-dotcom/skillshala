@@ -20,7 +20,7 @@ function Footer() {
       <ToastContainer />
 
       <FooterSection extraClass="flex md:flex-col justify-between before:invisible">
-        <FooterHeading heading="Collegeshala" />
+        <FooterHeading heading="Skill Shala" />
 
         <div className="flex flex-row items-center justify-evenly">
           <Instagram

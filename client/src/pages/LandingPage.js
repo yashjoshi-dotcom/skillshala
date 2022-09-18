@@ -1,8 +1,19 @@
 import React from "react";
 import { Flowbite } from "flowbite-react";
 import { Carousel } from "flowbite-react";
+import Lottie from "react-lottie";
+import animationData from "../lotties/MasHi.json";
 
 const LandingPage = () => {
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
   return (
     <>
       {/* <h1>Hello</h1> */}
@@ -13,17 +24,23 @@ const LandingPage = () => {
           rightControl="R"
           slideInterval={5000}
           slide=""
-          className=""
+          className="pt-0"
         >
-          <div className="mt-0 pt-[10%] text-center bg-background text-white">
-            <div className=" text-center text-5xl font-bold"> Kickstart</div>
-            <div className=" mb-[10%] text-center text-5xl italic">
-              {" "}
-              Your learning
+          <div className=" mt-0 h-[92vh] bg-background bg-cover bg-no-repeat object-fill pt-0 text-center text-white">
+            <div className="flex justify-center">
+              <div className=" pt-[15vh] text-center text-5xl font-bold">
+                {" "}
+                Kickstart Learning
+              </div>
             </div>
-            <button className="rounded-xl bg-purple-700 px-7 py-2 text-lg font-bold">
-              Kickstart
-            </button>
+            <div className=" mr-[35vw] flex flex-row-reverse">
+              <div className="  ml-[10vw] text-center text-5xl italic">
+                <Lottie options={defaultOptions} height={400} width={400} />
+              </div>
+              <button className="my-[24vh] w-52 rounded-full bg-purple-700 bg-opacity-50 px-[] text-lg font-bold">
+                Kickstart
+              </button>
+            </div>
           </div>
           <div className=" text-center text-white">
             <div className=" text-5xl italic text-slate-300">
