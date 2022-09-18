@@ -12,9 +12,13 @@ import NavaBar from "./pages/NavBar";
 import Subject from "./pages/Subject";
 import Reward from "./pages/rewards";
 import Profile from "./pages/profile";
+<<<<<<< Updated upstream
 import Testimonials from "./pages/testimonials";
 import ContactUs from "./pages/contactus";
 
+=======
+import Chat from './pages/Chat';
+>>>>>>> Stashed changes
 
 function App() {
 	return (
@@ -30,9 +34,15 @@ function App() {
 					<Route path="/home" element={<Home />} />
 					<Route path="/subject" element={<Subject />} />
 					<Route path="/forum" element={<Forum />} />
+<<<<<<< Updated upstream
 					<Route path="/testimonials" element={<Testimonials />} />
 					<Route path="/profile" element={<Profile />} />
 					<Route path="/contact" element={<ContactUs />} />
+=======
+					<Route path="/profile" element={ <Profile /> } />
+					<Route path="/chat" element={<Chat />} />
+
+>>>>>>> Stashed changes
 				</Routes>
 			</div>
 		</AuthProvider>
