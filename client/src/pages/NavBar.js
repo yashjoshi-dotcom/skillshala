@@ -51,10 +51,15 @@ const Navabr = () => {
   return (
     <>
     
-     <div className="">
-      <ul>
+     <div className="flex items-center w-full bg-gray-700 h-12">
+      <ul className="flex w-full justify-between text-white items-center text-xl">
         <li><a href="/home">Home</a></li>
         <li><a href="/contact">Contact</a></li>
+        <li><a href="/signup">Signup</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="testimonials">Testimonials</a></li>
+        <li><a href="reward">Reward</a></li>
       </ul>
      </div>
   

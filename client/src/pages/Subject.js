@@ -1,6 +1,7 @@
 import React from "react";
 import css from "./css.css";
 const subject = () => {
+    const id="cnjbckjbjksd";
     return (
         <>
             <div className="">
@@ -28,7 +29,8 @@ const subject = () => {
                                     <span class="text-3xl font-bold text-white tracking-wider leading-relaxed font-sans">Teacher's Name</span>
                                     <div class="text-xl text-center font-bold text-white tracking-wider leading-relaxed font-sans">Topic Name</div>
                                     <div class="pt-8 text-center">
-                                        <button class="text-center rounded-lg p-4 bg-white  text-gray-700 font-bold text-lg">Join Lecture</button>
+                                        <a href={`http://localhost:3030/${id}`}>
+                                        <button class="text-center rounded-lg p-4 bg-white  text-gray-700 font-bold text-lg">Join Lecture</button></a>
                                     </div>
                                 </div>
                             </div>
