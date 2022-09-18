@@ -7,9 +7,16 @@ import Questions from "../components/Questions";
 function Forum() {
 	const [questionsList, setQuestionsList] = useState([]);
 	const [loading, setLoading] = useState(true);
+	var c=0;
 
 	async function fetchQuestions() {
+		// setLoading(true);
 		const querySnapshot = await getDocs(collection(db, "Forum"));
+		console.log("hello")
+		if(c==1) return;
+		c=c+1;
+		
+
 		querySnapshot.forEach((doc) => {
 			const id = doc.id;
 			const Author = doc.data().Author;
@@ -22,16 +29,30 @@ function Forum() {
 
 			setQuestionsList((prevState) => {
 				const newList = [...prevState];
-				newList.push({ id, Author, Question, TimeStamp, Upvote, Downvote });
+				 newList.push({ id, Author, Question, TimeStamp, Upvote, Downvote });
 				return newList;
+				// return [
+                //     prevData,
+                //     {
+                //         id,
+                //         author: Author,
+                //         question: Question,
+                //         timeStamp: TimeStamp,
+                //         upVote: Upvote,
+                //         downVote: Downvote,
+                //     },
+                // ];
 			});
+			return;
 		});
 		setLoading(false);
-		console.log(questionsList);
+	    
+		
 	}
 
 	useEffect(() => {
 		fetchQuestions();
+		console.log(questionsList);
 	}, []);
 
 	return (

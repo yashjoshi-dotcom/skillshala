@@ -1,6 +1,65 @@
 import React from "react";
 import css from "./css.css";
+import { useState } from "react";
+import { useEffect } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase-config";
+import Questions from "../components/Questions";
+
 const Profile = () => {
+
+    const [questionsList, setQuestionsList] = useState([]);
+	const [loading, setLoading] = useState(true);
+    var c=0;
+    async function fetchQuestions() {
+		// setLoading(true);
+		const querySnapshot = await getDocs(collection(db, "Users"));
+		console.log("hello")
+		if(c==1) return;
+		c=c+1;
+		
+
+		querySnapshot.forEach((doc) => {
+			const id = doc.id;
+			const fullname = doc.data().fullname;
+			const gender = doc.data().gender;
+			// const TimeStamp = doc.data().TimeStamp;
+			// const Upvote = doc.data().Upvote;
+			// const Downvote = doc.data().Downvote;
+
+			console.log(id, fullname,gender);
+
+			setQuestionsList((prevState) => {
+				const newList = [...prevState];
+				 newList.push({ id, fullname,gender});
+				return newList;
+				// return [
+                //     prevData,
+                //     {
+                //         id,
+                //         author: Author,
+                //         question: Question,
+                //         timeStamp: TimeStamp,
+                //         upVote: Upvote,
+                //         downVote: Downvote,
+                //     },
+                // ];
+			});
+			return;
+		});
+		setLoading(false);
+	    
+		
+	}
+
+	useEffect(() => {
+		fetchQuestions();
+		console.log(questionsList);
+	}, []);
+
+
+
+
     return (
         <>
         <div>
