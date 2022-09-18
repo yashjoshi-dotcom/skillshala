@@ -7,15 +7,14 @@ import Questions from "../components/Questions";
 function Forum() {
 	const [questionsList, setQuestionsList] = useState([]);
 	const [loading, setLoading] = useState(true);
-	var c=0;
+	var c = 0;
 
 	async function fetchQuestions() {
 		// setLoading(true);
 		const querySnapshot = await getDocs(collection(db, "Forum"));
-		console.log("hello")
-		if(c==1) return;
-		c=c+1;
-		
+		console.log("hello");
+		if (c == 1) return;
+		c = c + 1;
 
 		querySnapshot.forEach((doc) => {
 			const id = doc.id;
@@ -29,25 +28,12 @@ function Forum() {
 
 			setQuestionsList((prevState) => {
 				const newList = [...prevState];
-				 newList.push({ id, Author, Question, TimeStamp, Upvote, Downvote });
+				newList.push({ id, Author, Question, TimeStamp, Upvote, Downvote });
 				return newList;
-				// return [
-                //     prevData,
-                //     {
-                //         id,
-                //         author: Author,
-                //         question: Question,
-                //         timeStamp: TimeStamp,
-                //         upVote: Upvote,
-                //         downVote: Downvote,
-                //     },
-                // ];
 			});
 			return;
 		});
 		setLoading(false);
-	    
-		
 	}
 
 	useEffect(() => {
@@ -56,7 +42,7 @@ function Forum() {
 	}, []);
 
 	return (
-		<div className="flex h-full gap-4 bg-slate-700 px-12 py-12">
+		<div className="flex h-full min-h-screen gap-4 bg-slate-700 px-12 py-12">
 			<div className="h-full w-2/3 divide-y-2 divide-indigo-500 border-2 border-indigo-500">
 				{loading ? (
 					<p>Loading...</p>

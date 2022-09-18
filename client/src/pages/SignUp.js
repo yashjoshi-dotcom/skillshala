@@ -20,6 +20,7 @@ function SignUp(props) {
 	const fullNameRef = useRef();
 	const emailRef = useRef();
 	const genderRef = useRef();
+	const roleRef = useRef();
 	const passwordRef = useRef();
 	const confirmPasswordRef = useRef();
 
@@ -41,10 +42,11 @@ function SignUp(props) {
 		const fullName = fullNameRef.current.value;
 		const email = emailRef.current.value;
 		const gender = genderRef.current.value;
+		const role = roleRef.current.value;
 		const password = passwordRef.current.value;
 		const confirmPassword = confirmPasswordRef.current.value;
 
-		if (fullName.trim().length > 3 && gender) {
+		if (fullName.trim().length > 3 && gender && role) {
 			if (validateEmail(email.trim())) {
 				console.log("validate mail ran");
 				if (password.trim() === confirmPassword.trim()) {
@@ -54,6 +56,7 @@ function SignUp(props) {
 								await setDoc(doc(db, "Users", cred.user.uid), {
 									fullname: fullName,
 									gender: gender,
+									role: role,
 								});
 								setCurrentUser(cred);
 								setLoading(false);
@@ -134,6 +137,19 @@ function SignUp(props) {
 							>
 								<option value="Male">Male</option>
 								<option value="Female">Female</option>
+							</select>
+						</div>
+						<div className={containerClass}>
+							<span className={spanClass}>Gender</span>
+							<select
+								ref={roleRef}
+								name="Role"
+								id="Role"
+								className={inputClasses}
+								required
+							>
+								<option value="Student">Student</option>
+								<option value="Teacher">Teacher</option>
 							</select>
 						</div>
 						<div className={containerClass}>
