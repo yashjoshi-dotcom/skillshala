@@ -3,8 +3,9 @@ import css from "./css.css";
 const Home = () => {
     return (
         <>
-            <div class="">
-                <div className="  flex justify-center  bg-[url('https://source.unsplash.com/1600x400/?home')] bg-cover  ">
+            <div class="min-h-[90.6vh] bg-[url('https://source.unsplash.com/1600x800/?dark')] bg-cover">
+                <div className="text-center italic text-5xl font-bold text-gray-400 pt-4 ">Choose your Subject</div>
+                {/* <div className="  flex justify-center  bg-[url('https://source.unsplash.com/1600x400/?home')] bg-cover  ">
                     <div className="flex justify-center w-4/5">
                         <input
                             type="text"
@@ -12,13 +13,11 @@ const Home = () => {
                             placeholder="Search here..."
                         // onChange={(e) => searchtags(e)}
                         />
-                        {/* <button className=" my-36 sm:h-20 w-20 rounded-l-none rounded-r-xl  px-4 bg-sky-600  border-0 hover:bg-sky-700">
-                <img className=" object-contain py-2 w-10" src={image5} alt="" />
-              </button> */}
+                        
                     </div>
 
-                </div>
-                <div className="  flex justify-center  bg-[url('https://source.unsplash.com/1600x400/?dark')] bg-cover   px-3 grid grid-cols-4 gap-5">
+                </div> */}
+                <div className=" min-h-[90.6vh]  flex justify-center  bg-[url('https://source.unsplash.com/1600x800/?dark')] bg-cover   px-3 grid grid-cols-4 gap-y-8 gap-x-5">
 
 
                     <div class="py-4">
@@ -39,7 +38,9 @@ const Home = () => {
                             <div class="absolute opacity-0 fd-sh group-hover:opacity-100">
                                 <span class="text-3xl font-bold text-white tracking-wider leading-relaxed font-sans">Computer Science</span>
                                 <div class="pt-8 text-center">
-                                    <button class="text-center rounded-lg p-4 bg-white  text-gray-700 font-bold text-lg">Start Learning</button>
+                                    <button class="text-center rounded-lg p-4 bg-white  text-gray-700 font-bold text-lg"
+                                    
+                                    >Start Learning</button>
                                 </div>
                             </div>
                         </div>

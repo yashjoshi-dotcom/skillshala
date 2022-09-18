@@ -7,7 +7,7 @@ const LandingPage = () => {
     <>
       {/* <h1>Hello</h1> */}
 
-      <div className="h-[90.6vh] w-[100%] bg-background bg-no-repeat">
+      <div className="h-[90.6vh] w-[100%]  bg-no-repeat">
         <Carousel
           leftControl="L"
           rightControl="R"
@@ -15,7 +15,7 @@ const LandingPage = () => {
           slide=""
           className=""
         >
-          <div className=" pt-[10%] text-center text-white">
+          <div className="mt-0 pt-[10%] text-center bg-background text-white">
             <div className=" text-center text-5xl font-bold"> Kickstart</div>
             <div className=" mb-[10%] text-center text-5xl italic">
               {" "}

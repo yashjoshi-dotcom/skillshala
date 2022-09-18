@@ -53,8 +53,8 @@ const Navabr = () => {
 			<Navbar fluid={true} rounded={false}>
 				<div className=" sm:absolute">
 					<Navbar.Brand href="/">
-						<span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-							College Bazzar
+						<span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white italic">
+							Skill Shala
 						</span>
 					</Navbar.Brand>
 				</div>

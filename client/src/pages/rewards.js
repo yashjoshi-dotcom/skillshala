@@ -31,23 +31,33 @@ const Reward = () => {
                     </div>
                 </Carousel>
                 <div class="grid overflow-hidden grid-cols-3 grid-rows-4 gap-2 py-2">
-                    <div class="box row-span-3"><div className="max-w-sm">
-  <Card
-    imgAlt="Meaningful alt text for an image that is not purely decorative"
-    imgSrc="https://flowbite.com/docs/images/blog/image-1.jpg"
-  >
-    <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-      Noteworthy technology acquisitions 2021
-    </h5>
-    <p className="font-normal text-gray-700 dark:text-gray-400">
-      Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-    </p>
-  </Card>
-</div></div>
-                    <div class="box col-start-2 col-span-2">2</div>
-                    <div class="box row-span-2 col-start-2">3</div>
-                    <div class="box row-span-3">4</div>
-                    <div class="box col-span-2">5</div>
+                    <div class="box row-span-3 rounded-3xl">
+                        <div className="block rounded-lg">
+                            <img className=" w-[462px] h-[300px] rounded-lg" src="https://source.unsplash.com/500x300/?laptop" alt="" />
+                            <div className=" text-center text-slate-600 text-xl font-bold">Dell inspiron 1540 2in1 Laptop</div>
+                            <div className=" text-center">9999 Coins</div>
+
+                        </div>
+                    </div>
+
+                    <div class="box col-start-2 col-span-2 py-7">
+                        <div className=" flex justify-center text-2xl  italic font-semibold"> Get Amazon Gift Cards Worth of 500 INR</div>
+                        <div className=" text-2xl text-slate-400 font-semibold text-center ">for only 499 coins</div>
+
+                    </div>
+                    <div class="box row-span-2 col-start-2 text-5xl font-bold italic flex justify-center items-center flex-col "><div className="">Skill Shala</div><div className=" text-lg">(Your best study time guide)</div></div>
+                    <div class="box row-span-3 rounded-lg">
+                    <div className="block rounded-lg">
+                            <img className=" w-[462px] h-[300px] rounded-lg" src="https://source.unsplash.com/500x300/?laptop" alt="" />
+                            <div className=" text-center text-slate-600 text-xl font-bold">Dell inspiron 1540 2in1 Laptop</div>
+                            <div className=" text-center">9999 Coins</div>
+
+                        </div>
+                    </div>
+                    <div class="box col-span-2 py-7">
+                        <div className=" flex justify-center text-2xl  italic font-semibold"> Get Amazon Gift Cards Worth of 500 INR</div>
+                        <div className=" text-2xl text-slate-400 font-semibold text-center ">for only 499 coins</div>
+                        </div>
                 </div>
             </div>
         </>
