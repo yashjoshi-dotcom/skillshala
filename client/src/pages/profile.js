@@ -74,7 +74,7 @@ const Profile = () => {
                                 <div class=" bg-black shadow-slate-900 bg-opacity-30 text-white  shadow-lg p-3 border-t-4 border-green-400">
                                     <div class="image overflow-hidden">
                                         <img class="h-auto w-full mx-auto"
-                                            src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
+                                            src="https://i.etsystatic.com/36532523/r/il/97ae46/4078306713/il_1140xN.4078306713_n74s.jpg"
                                             alt="" />
                                     </div>
                                     <h1 class="text-gray-100 font-bold text-xl leading-8 my-1">tanush</h1>

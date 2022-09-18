@@ -12,6 +12,9 @@ import NavaBar from "./pages/NavBar";
 import Subject from "./pages/Subject";
 import Reward from "./pages/rewards";
 import Profile from "./pages/profile";
+import Testimonials from "./pages/testimonials";
+import ContactUs from "./pages/contactus";
+
 
 function App() {
 	return (
@@ -27,7 +30,9 @@ function App() {
 					<Route path="/home" element={<Home />} />
 					<Route path="/subject" element={<Subject />} />
 					<Route path="/forum" element={<Forum />} />
+					<Route path="/testimonials" element={<Testimonials />} />
 					<Route path="/profile" element={<Profile />} />
+					<Route path="/contact" element={<ContactUs />} />
 				</Routes>
 			</div>
 		</AuthProvider>
