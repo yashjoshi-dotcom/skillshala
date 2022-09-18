@@ -9,31 +9,31 @@ import Questions from "../components/Questions";
 const Profile = () => {
 
     const [questionsList, setQuestionsList] = useState([]);
-	const [loading, setLoading] = useState(true);
-    var c=0;
+    const [loading, setLoading] = useState(true);
+    var c = 0;
     async function fetchQuestions() {
-		// setLoading(true);
-		const querySnapshot = await getDocs(collection(db, "Users"));
-		console.log("hello")
-		if(c==1) return;
-		c=c+1;
-		
+        // setLoading(true);
+        const querySnapshot = await getDocs(collection(db, "Users"));
+        console.log("hello")
+        if (c == 1) return;
+        c = c + 1;
 
-		querySnapshot.forEach((doc) => {
-			const id = doc.id;
-			const fullname = doc.data().fullname;
-			const gender = doc.data().gender;
-			// const TimeStamp = doc.data().TimeStamp;
-			// const Upvote = doc.data().Upvote;
-			// const Downvote = doc.data().Downvote;
 
-			console.log(id, fullname,gender);
+        querySnapshot.forEach((doc) => {
+            const id = doc.id;
+            const fullname = doc.data().fullname;
+            const gender = doc.data().gender;
+            // const TimeStamp = doc.data().TimeStamp;
+            // const Upvote = doc.data().Upvote;
+            // const Downvote = doc.data().Downvote;
 
-			setQuestionsList((prevState) => {
-				const newList = [...prevState];
-				 newList.push({ id, fullname,gender});
-				return newList;
-				// return [
+            console.log(id, fullname, gender);
+
+            setQuestionsList((prevState) => {
+                const newList = [...prevState];
+                newList.push({ id, fullname, gender });
+                return newList;
+                // return [
                 //     prevData,
                 //     {
                 //         id,
@@ -44,28 +44,28 @@ const Profile = () => {
                 //         downVote: Downvote,
                 //     },
                 // ];
-			});
-			return;
-		});
-		setLoading(false);
-	    
-		
-	}
+            });
+            return;
+        });
+        setLoading(false);
 
-	useEffect(() => {
-		fetchQuestions();
-		console.log(questionsList);
-	}, []);
+
+    }
+
+    useEffect(() => {
+        fetchQuestions();
+        console.log(questionsList);
+    }, []);
 
 
 
 
     return (
         <>
-        <div>
+            <div>
                 <div class="bg-gray-700">
-    
-    
+
+
                     <div class="container mx-auto py-5 p-5">
                         <div class="md:flex flex-nowrap md:-mx-2 ">
                             {/* <!-- Left Side --> */}
@@ -78,8 +78,8 @@ const Profile = () => {
                                             alt="" />
                                     </div>
                                     <h1 class="text-gray-100 font-bold text-xl leading-8 my-1">tanush</h1>
-    
-    
+
+
                                     <ul
                                         class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
                                         <li class="flex items-center py-3">
@@ -181,27 +181,94 @@ const Profile = () => {
                                             </div>
                                         </div>
                                     </div>
-    
+
                                 </div>
                                 {/* <!-- End of about section --> */}
-    
+
                                 <div class="my-4"></div>
-    
-                                {/* <!-- Experience and education --> */}
+
+                                {/* <!-- Teacher's section--> */}
                                 <div class=" bg-black shadow-slate-900 bg-opacity-30 text-white  shadow-lg p-3  rounded-sm">
-                                <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
-                                            <span class="text-green-500">
-                                                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                    stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                                </svg>
-                                            </span>
-                                            <span class="tracking-wide text-white">My Listing</span>
-                                        </div>
+                                    <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
+                                        <span class="text-green-500">
+                                            <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                            </svg>
+                                        </span>
+                                        <span class="tracking-wide text-white">Host Your Lecture</span>
+                                    </div>
                                     <div class=" before:hidden after:hidden">
-                                        
-                                    {/* {userdata.list.map((dataa, key) => {
+                                        <form className="dark" action="">
+                                            <div className="mb-6">
+                                                <label
+                                                    htmlFor="text"
+                                                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                                >
+                                                    Subject Name
+                                                </label>
+                                                <input
+                                                    name="item_name"
+                                                    value=""
+                                                    type="text"
+                                                    id="text"
+                                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                    placeholder="Subject name..."
+                                                    onChange=""
+                                                    required
+                                                />
+                                            </div>
+
+                                            <div className="mb-6">
+                                                <label
+                                                    htmlFor="text"
+                                                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                                >
+                                                    Topic Name
+                                                </label>
+                                                <input
+                                                    name="item_name"
+                                                    value=""
+                                                    type="text"
+                                                    id="text"
+                                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                    placeholder="Topic you are teaching..."
+                                                    onChange=""
+                                                    required
+                                                />
+                                            </div>
+
+                                            <div>
+                                                <label
+                                                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                                    htmlFor="user_avatar"
+                                                >
+                                                    Upload file
+                                                </label>
+                                                <input
+                                                    className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                                    aria-describedby="user_avatar_help"
+                                                    id="user_avatar"
+                                                    type="file"
+
+                                                //   onChangeCapture={(e) => uploadImage(e)}
+                                                />
+                                            </div>
+
+                                            <div className="my-5 text-center">
+                                                <button
+                                                    type="submit"
+                                                    onClick=""
+                                                    className="focus:outline-none mx-auto  text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-10 py-2.5  dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 "
+                                                >
+                                                    Start Class
+                                                </button>
+                                            </div>
+
+                                        </form>
+
+                                        {/* {userdata.list.map((dataa, key) => {
                                 return (<>
                                     <button
                         className=" text-left"
@@ -232,5 +299,6 @@ const Profile = () => {
                 </div >
             </div >
         </>
-    )}
-    export default Profile;
+    )
+}
+export default Profile;

@@ -2,8 +2,9 @@ import React from "react";
 import css from "./css.css";
 const Home = () => {
     return (
-        <>
-            <div class="min-h-[90.6vh] bg-[url('https://source.unsplash.com/1600x800/?dark')] bg-cover">
+        <>  
+        <div className="bg-[url('https://source.unsplash.com/1600x800/?dark')] bg-cover">
+            <div class="min-h-[90.6vh] ">
                 <div className="text-center italic text-5xl font-bold text-gray-400 pt-4 ">Choose your Subject</div>
                 {/* <div className="  flex justify-center  bg-[url('https://source.unsplash.com/1600x400/?home')] bg-cover  ">
                     <div className="flex justify-center w-4/5">
@@ -17,7 +18,7 @@ const Home = () => {
                     </div>
 
                 </div> */}
-                <div className=" min-h-[90.6vh]  flex justify-center  bg-[url('https://source.unsplash.com/1600x800/?dark')] bg-cover   px-3 grid grid-cols-4 gap-y-8 gap-x-5">
+                <div className=" min-h-[90.6vh]  flex justify-center     px-3 grid grid-cols-4 gap-y-8 gap-x-5">
 
 
                     <div class="py-4">
@@ -48,6 +49,7 @@ const Home = () => {
                     </div>
 
                 </div>
+            </div>
             </div>
         </>
     )
