@@ -1,9 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
 import { auth } from "../firebase-config";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, getDocs, collection } from "firebase/firestore";
 import { db } from "../firebase-config";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { async } from "@firebase/util";
 
 const AuthContext = React.createContext();
 
@@ -13,6 +14,7 @@ export function useAuth() {
 
 export function AuthProvider(props) {
 	const [currentUser, setCurrentUser] = useState(false);
+	const [forumQuestions, setForumQuestions] = useState([]);
 	const [userRole, setUserRole] = useState(false);
 	const [userGender, setUserGender] = useState(false);
 	const [userName, setUserName] = useState(false);
@@ -28,10 +30,24 @@ export function AuthProvider(props) {
 			setUserGender(docSnap.data().gender);
 			setUserName(docSnap.data().fullname);
 			setUserRole(docSnap.data().role);
-			navigate("/");
 		} else {
 			console.log("No such document!");
 		}
+	}
+
+	async function fetchForumsQuestion() {
+		const forumlist = [];
+		const querySnapshot = await getDocs(collection(db, "Forum"));
+
+		querySnapshot.forEach((doc) => {
+			console.log(doc.data().timestamp);
+			forumlist.push({
+				id: doc.id,
+				Author: doc.data().authorName,
+				TimeStamp: doc.data().timestamp,
+			});
+		});
+		setForumQuestions(forumlist);
 	}
 
 	onAuthStateChanged(auth, (user) => {
@@ -64,6 +80,8 @@ export function AuthProvider(props) {
 		userRole,
 		setUserRole,
 		fetchUserDetails,
+		forumQuestions,
+		fetchForumsQuestion,
 	};
 
 	return (
