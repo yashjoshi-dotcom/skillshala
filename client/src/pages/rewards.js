@@ -6,14 +6,15 @@ import { Carousel } from "flowbite-react";
 const Reward = () => {
     return (
         <>
-            <div className="h-[60vh] bg-gradient-to-tr from-purple-200 via-purple-400 to-purple-800">
+            <div className=" bg-gradient-to-tr from-purple-200 via-purple-400 to-purple-800">
+                <div className="h-[60vh]  ">
                 <Carousel
 
                     slideInterval={5000}
 
 
                 >
-                    <div className=" ">
+                    <div >
                         <img className="mx-auto rounded-3xl" src="https://source.unsplash.com/300x300/?cup" alt="" />
                         <div className=" text-center mb-[3vh] text-3xl italic font-semibold ">SkillShala Goodies</div>
                     </div>
@@ -29,7 +30,7 @@ const Reward = () => {
                         <img className="mx-auto rounded-3xl" src="https://source.unsplash.com/300x300/?cup" alt="" />
                         <div className=" text-center mb-[3vh] text-3xl italic font-semibold ">I Pad air 5</div>
                     </div>
-                </Carousel>
+                </Carousel></div>
                 <div class="grid overflow-hidden grid-cols-3 grid-rows-4 gap-2 py-2 before:hidden after:hidden">
                     <div class="box row-span-3 rounded-3xl">
                         <div className="block rounded-lg">
